@@ -10,11 +10,18 @@ import { Provider } from 'react-redux';
 
 import configureStore from './store';
 
-import { sagaMiddleware, authSaga } from './store/sagas';
+import {
+  sagaMiddleware,
+  authSaga,
+  productSaga,
+  categorySaga
+} from './store/sagas';
 
 export const store = configureStore(); // eslint-disable-line
 
 sagaMiddleware.run(authSaga);
+sagaMiddleware.run(productSaga);
+sagaMiddleware.run(categorySaga);
 
 ReactDOM.render(
   React.createElement(() => (

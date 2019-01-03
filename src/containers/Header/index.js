@@ -4,7 +4,10 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { authActions } from '../../store/actions';
 
+import history from '../../lib/history';
+
 import Button from '../../components/Button';
+import Icon from '../../components/Icon';
 
 import './Header.css';
 
@@ -24,9 +27,13 @@ class Header extends Component {
     return (
       <nav className="navbar is-link">
         <div className="navbar-brand">
-          <span className="navbar-item title is-marginless is-paddingless">
-            Admin
-          </span>
+          <NavLink
+            className="navbar-item title is-marginless is-paddingless"
+            to="/"
+          >
+            <span>Book Store</span>
+          </NavLink>
+
           <div
             role="button"
             className={`navbar-burger ${navbarOpen}`}
@@ -40,25 +47,41 @@ class Header extends Component {
           </div>
         </div>
         <div className={`navbar-menu ${navbarOpen}`}>
-          <div className="navbar-start">
-            <NavLink className="navbar-item" to="/">
-              Orders
-            </NavLink>
-            <NavLink className="navbar-item" to="/products">
-              Products
-            </NavLink>
-            <NavLink className="navbar-item" to="/categories">
-              Categories
-            </NavLink>
-          </div>
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                <Button
-                  text="Log out"
-                  type="light"
-                  onClick={() => this.props.logout()}
-                />
+                {this.props.authenticated ? (
+                  <React.Fragment>
+                    <Button
+                      text="Cart"
+                      type="primary"
+                      onClick={() => history.push('/checkout')}
+                    />
+                    <Button
+                      text="Profile"
+                      type="light"
+                      onClick={() => history.push('/profile')}
+                    />
+                    <Button
+                      text="Log out"
+                      type="light"
+                      onClick={() => this.props.logout()}
+                    />
+                  </React.Fragment>
+                ) : (
+                  <React.Fragment>
+                    <Button
+                      text="Log in"
+                      type="light"
+                      onClick={() => history.push('/login')}
+                    />
+                    <Button
+                      text="Register"
+                      type="light"
+                      onClick={() => history.push('/register')}
+                    />
+                  </React.Fragment>
+                )}
               </div>
             </div>
           </div>
@@ -68,11 +91,15 @@ class Header extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  authenticated: !!state.auth.token
+});
+
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(authActions.logout())
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Header);

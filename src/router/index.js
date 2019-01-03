@@ -5,12 +5,16 @@ import history from '../lib/history';
 
 import PrivateRoute from '../containers/PrivateRoute';
 
-import Test from '../views/Test';
+import Home from '../views/Home';
+import Login from '../views/Login';
+import Register from '../views/Register';
 
 const router = () => (
   <Router history={history}>
     <Switch>
-      <Route path="/" component={Test} />
+      <Route exact path="/" component={Home} />
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
     </Switch>
   </Router>
 );
