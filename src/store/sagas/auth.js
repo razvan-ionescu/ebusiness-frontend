@@ -15,8 +15,7 @@ export function* checkAuth() {
         user: { ...user.context }
       })
     );
-    yield call(history.replace, '/');
-  } else history.replace('/login');
+  }
 }
 
 export function* login(api, object) {
@@ -58,5 +57,4 @@ export function* register(api, object) {
 export function* logout() {
   yield put(authActions.logoutSuccess());
   yield call(auth.deleteToken);
-  yield call(history.replace, '/login');
 }
