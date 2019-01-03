@@ -5,6 +5,7 @@ import { productActions } from '../store/actions';
 import { createLoadingSelector } from '../store/selectors';
 
 import Card from '../components/Card';
+import Button from '../components/Button';
 
 class ProductList extends Component {
   componentDidMount() {
@@ -13,17 +14,39 @@ class ProductList extends Component {
   render() {
     const products = this.props.products.length ? (
       this.props.products.map(item => (
-        <Card key={item.id}>
-          <Card.Header>
-            <h5 className="card-header-title">{item.name}</h5>
-          </Card.Header>
-        </Card>
+        <div key={item.id} className="column is-3">
+          <Card>
+            <Card.Image>
+              <figure className="image is-4by3">
+                <img
+                  src={`${process.env.REACT_APP_API_URL}/${item.image}`}
+                  alt={item.name}
+                />
+              </figure>
+            </Card.Image>
+            <Card.Header>
+              <h5 className="card-header-title">{item.name}</h5>
+            </Card.Header>
+            <Card.Content>
+              <div className="content">
+                {item.description}
+                <br />
+                RON {item.price}
+              </div>
+            </Card.Content>
+            <Card.Footer>
+              <Card.Footer.Item>
+                <Button type="primary" text="Add to cart" />
+              </Card.Footer.Item>
+            </Card.Footer>
+          </Card>
+        </div>
       ))
     ) : (
       <p>No products to display.</p>
     );
 
-    return <React.Fragment>{products}</React.Fragment>;
+    return <div className="columns">{products}</div>;
   }
 }
 

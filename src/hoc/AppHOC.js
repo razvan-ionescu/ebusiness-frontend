@@ -8,7 +8,10 @@ const appHOC = WrappedComponent =>
       return (
         <div style={{ minHeight: '100vh' }} className="has-background-light">
           <Header />
-          <div className="container">
+          <div
+            style={{ marginTop: '20px' }}
+            className="container is-fluid mt-2"
+          >
             <WrappedComponent {...this.props} />
           </div>
         </div>

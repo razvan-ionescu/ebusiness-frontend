@@ -11,7 +11,14 @@ class Home extends Component {
     this.props.getCategories();
   }
   render() {
-    return <ProductList />;
+    return (
+      <div className="columns">
+        <div className="column is-2" />
+        <div className="column">
+          <ProductList />
+        </div>
+      </div>
+    );
   }
 }
 
