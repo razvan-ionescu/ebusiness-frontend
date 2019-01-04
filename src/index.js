@@ -14,7 +14,10 @@ import {
   sagaMiddleware,
   authSaga,
   productSaga,
-  categorySaga
+  categorySaga,
+  reviewSaga,
+  addressSaga,
+  orderSaga
 } from './store/sagas';
 
 export const store = configureStore(); // eslint-disable-line
@@ -22,6 +25,9 @@ export const store = configureStore(); // eslint-disable-line
 sagaMiddleware.run(authSaga);
 sagaMiddleware.run(productSaga);
 sagaMiddleware.run(categorySaga);
+sagaMiddleware.run(reviewSaga);
+sagaMiddleware.run(addressSaga);
+sagaMiddleware.run(orderSaga);
 
 ReactDOM.render(
   React.createElement(() => (

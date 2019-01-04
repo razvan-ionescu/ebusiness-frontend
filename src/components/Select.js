@@ -6,7 +6,7 @@ const select = props => {
     <div className="field">
       <div className={`select ${loading}`}>
         <select value={props.value} onChange={props.onChange}>
-          <option value="">None</option>
+          <option value="">{props.label}</option>
           {props.options.length
             ? props.options.map(item => (
                 <option key={item.value} value={item.value}>

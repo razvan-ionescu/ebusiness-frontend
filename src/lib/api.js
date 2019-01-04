@@ -23,10 +23,18 @@ const create = (baseURL = process.env.REACT_APP_API_URL) => {
 
   const postLogin = loginObj => api.post('/login', loginObj);
   const postRegister = registerObj => api.post('/register/client', registerObj);
-  const getOrders = () => api.get('/orders');
   const getProducts = () => api.get('/products');
   const getProduct = id => api.get(`/products/${id}`);
   const getCategories = () => api.get('/categories');
+  const getReviews = id => api.get(`/products/${id}/reviews`);
+  const postReview = (id, reviewObj) =>
+    api.post(`/products/${id}/reviews`, reviewObj);
+  const getAddresses = () => api.get('/addresses');
+  const postAddress = addressObj => api.post('/addresses', addressObj);
+  const getUser = () => api.get('/profile');
+  const patchUser = userObj => api.patch('/profile', userObj);
+  const getOrders = () => api.get('/orders');
+  const postOrder = orderObj => api.post('/orders', orderObj);
 
   return {
     postLogin,
@@ -34,7 +42,15 @@ const create = (baseURL = process.env.REACT_APP_API_URL) => {
     getProduct,
     getProducts,
     getCategories,
-    postRegister
+    postRegister,
+    getReviews,
+    postReview,
+    getAddresses,
+    postAddress,
+    getUser,
+    patchUser,
+    getOrders,
+    postOrder
   };
 };
 

@@ -23,6 +23,18 @@ export default createReducer(
       ...state,
       token: null,
       currentUser: null
+    }),
+    [authActions.getProfileSuccess]: (state, payload) => ({
+      ...state,
+      currentUser: { ...payload }
+    }),
+    [authActions.patchUserSuccess]: (state, payload) => ({
+      ...state,
+      token: payload.token,
+      currentUser: {
+        ...payload.user,
+        client: { ...payload.client }
+      }
     })
   },
   initialState

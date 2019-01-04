@@ -5,6 +5,7 @@ import { categoryActions } from '../store/actions';
 
 import AppHOC from '../hoc/AppHOC';
 import ProductList from '../containers/ProductList';
+import Filters from '../containers/Filters';
 
 class Home extends Component {
   componentDidMount() {
@@ -13,7 +14,9 @@ class Home extends Component {
   render() {
     return (
       <div className="columns">
-        <div className="column is-2" />
+        <div className="column is-3">
+          <Filters />
+        </div>
         <div className="column">
           <ProductList />
         </div>
