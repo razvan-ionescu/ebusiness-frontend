@@ -14,7 +14,7 @@ export default createReducer(
     }),
     [reviewActions.postReviewSuccess]: (state, payload) => ({
       ...state,
-      reviews: [...state.reviews, payload]
+      reviews: state.reviews.concat(payload)
     })
   },
   initialState
