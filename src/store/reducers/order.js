@@ -17,7 +17,7 @@ export default createReducer(
     }),
     [orderActions.postOrderSuccess]: (state, payload) => ({
       ...state,
-      orders: state.orders.concat(payload),
+      orders: [...state.orders, payload],
       currentOrder: {
         products: []
       }
