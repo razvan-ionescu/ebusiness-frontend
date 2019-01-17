@@ -19,6 +19,7 @@ export function* postOrder(api, object) {
     const response = yield call(api.postOrder, object.payload);
     yield put(orderActions.postOrderSuccess(response.data));
     yield call(history.replace, '/');
+    alert('Order registered!');
   } catch (e) {
     yield put(orderActions.postOrderFailure(e));
   }
