@@ -34,7 +34,7 @@ class ProductList extends Component {
               <h5 className="card-header-title">{item.name}</h5>
             </Card.Header>
             <Card.Content>
-              <div className="content">
+              <div className="content" style={{ wordBreak: 'break-word' }}>
                 {item.description.substring(0, 140)}
                 <br />
                 RON {item.price}
