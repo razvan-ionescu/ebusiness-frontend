@@ -50,17 +50,21 @@ class Login extends Component {
               </Card.Header>
               <Card.Content>
                 <Input
-                  error={this.props.errors.email}
+                  error={this.props.touched.email && this.props.errors.email}
                   value={this.props.values.email}
                   onChange={this.props.handleChange('email')}
+                  onBlur={this.props.handleBlur('email')}
                   placeholder="E-mail"
                   label="E-mail"
                   type="email"
                 />
                 <Input
-                  error={this.props.errors.password}
+                  error={
+                    this.props.touched.password && this.props.errors.password
+                  }
                   value={this.props.values.password}
                   onChange={this.props.handleChange('password')}
+                  onBlur={this.props.handleBlur('password')}
                   placeholder="Password"
                   label="Password"
                   type="password"
