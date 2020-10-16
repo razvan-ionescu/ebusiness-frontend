@@ -41,19 +41,20 @@ class ReviewForm extends Component {
             error={this.props.errors.score}
             value={this.props.values.score}
             onChange={this.props.handleChange('score')}
-            placeholder="Score"
-            label="Score"
+            placeholder="Pe o scara de la 1-5 cat de multumit sunteti de acest produs?"
+            label="Evaluare"
             type="number"
           />
+          <label>Review</label>
           <Input.Textarea
             error={this.props.errors.content}
             value={this.props.values.content}
             onChange={this.props.handleChange('content')}
-            placeholder="Details"
+            placeholder="Opinia dumneavoastra despre acest produs"
             label="Details"
           />
           <Button
-            text="Add review"
+            text="Adauga comentariu"
             type="success"
             onClick={this.props.handleSubmit}
           />

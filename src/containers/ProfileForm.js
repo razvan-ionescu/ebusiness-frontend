@@ -44,7 +44,7 @@ class Register extends Component {
     return (
       <Card>
         <Card.Header>
-          <h5 className="card-header-title">My details</h5>
+          <h5 className="card-header-title">Detalii utilizator</h5>
         </Card.Header>
         <Card.Content>
           <Input
@@ -59,16 +59,16 @@ class Register extends Component {
             error={this.props.errors.name}
             value={this.props.values.name}
             onChange={this.props.handleChange('name')}
-            placeholder="Name"
-            label="Name"
+            placeholder="Nume de familie"
+            label="Nume"
             type="text"
           />
           <Input
             error={this.props.errors.surname}
             value={this.props.values.surname}
             onChange={this.props.handleChange('surname')}
-            placeholder="Surname"
-            label="Surname"
+            placeholder="Nume propriu"
+            label="Prenume"
             type="text"
           />
         </Card.Content>
@@ -76,7 +76,7 @@ class Register extends Component {
           <Card.Footer.Item>
             <Button
               loading={this.props.isLoading}
-              text="Save"
+              text="Salveaza"
               type="primary"
               disabled={this.props.isSubmitting}
               onClick={this.props.handleSubmit}

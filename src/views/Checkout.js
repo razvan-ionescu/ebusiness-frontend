@@ -24,6 +24,7 @@ const enhancer = withFormik({
     receiptAddressId: yup.string().required()
   }),
   handleSubmit: (values, { props, resetForm }) => {
+    console.log("am apasat butonul");
     props.postOrder({ ...values, products: [...props.currentOrder.products] });
     resetForm();
   }
@@ -38,7 +39,7 @@ class Checkout extends Component {
       <Card>
         <Card.Header>
           <Select
-            label="Delivery address"
+            label="Adresa de livrare"
             loading={this.props.loading}
             value={this.props.values.deliveryAddressId}
             options={this.props.addresses.map(item => ({
@@ -50,7 +51,7 @@ class Checkout extends Component {
             }
           />
           <Select
-            label="Receipt address"
+            label="Adresa de facturare"
             loading={this.props.loading}
             value={this.props.values.receiptAddressId}
             options={this.props.addresses.map(item => ({
@@ -66,13 +67,14 @@ class Checkout extends Component {
           <Table>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Quantity</Table.HeaderCell>
-                <Table.HeaderCell>Price</Table.HeaderCell>
-                <Table.HeaderCell>Total</Table.HeaderCell>
+                <Table.HeaderCell>Nume</Table.HeaderCell>
+                <Table.HeaderCell>Cantitate (bucati)</Table.HeaderCell>
+                <Table.HeaderCell>Pret (lei)</Table.HeaderCell>
+                <Table.HeaderCell>Total (lei)</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>
+              
               {this.props.currentOrder.products.length ? (
                 this.props.currentOrder.products.map(item => (
                   <Table.Row key={item.productId}>
@@ -84,22 +86,27 @@ class Checkout extends Component {
                 ))
               ) : (
                 <Table.Row>
-                  <Table.Cell>No products in cart.</Table.Cell>
+                  <Table.Cell>Cosul de cumparaturi este gol.</Table.Cell>
                 </Table.Row>
               )}
             </Table.Body>
             <Table.Footer>
               <Table.Row>
+                <Table.Cell>Cantitate totala {this.props.currentOrder.products.map(item => item.quantity).reduce((a, b) => a + b, 0)}.</Table.Cell>
+              </Table.Row>
+              <Table.Row>
                 <Table.Cell>
                   <Button
-                    text="Checkout"
+                    text="Plateste"
                     type="primary"
                     onClick={this.props.handleSubmit}
                   />
                 </Table.Cell>
               </Table.Row>
+              
             </Table.Footer>
           </Table>
+          
         </Card.Content>
       </Card>
     );

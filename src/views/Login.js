@@ -46,7 +46,7 @@ class Login extends Component {
           <div className="column is-one-third">
             <Card>
               <Card.Header>
-                <h5 className="card-header-title">Login</h5>
+                <h5 className="card-header-title">Logare</h5>
               </Card.Header>
               <Card.Content>
                 <Input
@@ -65,8 +65,8 @@ class Login extends Component {
                   value={this.props.values.password}
                   onChange={this.props.handleChange('password')}
                   onBlur={this.props.handleBlur('password')}
-                  placeholder="Password"
-                  label="Password"
+                  placeholder="Parola"
+                  label="Parola"
                   type="password"
                 />
               </Card.Content>

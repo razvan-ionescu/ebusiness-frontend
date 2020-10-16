@@ -31,7 +31,7 @@ class Header extends Component {
             className="navbar-item title is-marginless is-paddingless"
             to="/"
           >
-            <span>Book Store</span>
+            <span>Mega Emag</span>
           </NavLink>
 
           <div
@@ -53,12 +53,12 @@ class Header extends Component {
                 {this.props.authenticated ? (
                   <React.Fragment>
                     <Button
-                      text="Cart"
+                      text="Cos"
                       type="primary"
                       onClick={() => history.push('/checkout')}
                     />
                     <Button
-                      text="Profile"
+                      text="Profil"
                       type="light"
                       onClick={() => history.push('/profile')}
                     />
@@ -71,12 +71,12 @@ class Header extends Component {
                 ) : (
                   <React.Fragment>
                     <Button
-                      text="Log in"
+                      text="Logare"
                       type="light"
                       onClick={() => history.push('/login')}
                     />
                     <Button
-                      text="Register"
+                      text="Inregistrare"
                       type="light"
                       onClick={() => history.push('/register')}
                     />

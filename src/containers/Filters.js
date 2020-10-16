@@ -14,11 +14,11 @@ class Filters extends Component {
     return (
       <Card>
         <Card.Header>
-          <h5 className="card-header-title">Filters</h5>
+          <h5 className="card-header-title">Filtre</h5>
         </Card.Header>
         <Card.Content>
           <Select
-            label="Category"
+            label="Categorie"
             value={this.props.categoryFilter}
             onChange={e => this.props.setCategoryFilter(e.target.value)}
             options={this.props.categories.map(item => ({
@@ -27,7 +27,7 @@ class Filters extends Component {
             }))}
           />
           <Select
-            label="Price"
+            label="Pret"
             value={this.props.sortFilter}
             onChange={e => this.props.setSortFilter(e.target.value)}
             options={[

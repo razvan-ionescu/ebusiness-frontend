@@ -52,7 +52,7 @@ class ProductDetail extends Component {
               <Card.Footer.Item>
                 <Button
                   type="primary"
-                  text="Add to cart"
+                  text="Adauga in cos"
                   onClick={() =>
                     this.props.addItem({
                       productId: this.props.currentProduct.id,

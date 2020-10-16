@@ -16,12 +16,15 @@ class OrderList extends Component {
       <Table>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Status</Table.HeaderCell>
-            <Table.HeaderCell>Order Date</Table.HeaderCell>
-            <Table.HeaderCell>Cost</Table.HeaderCell>
+            <Table.HeaderCell>Status Comanda</Table.HeaderCell>
+            <Table.HeaderCell>Data Comenzii</Table.HeaderCell>
+            <Table.HeaderCell>Cost Comanda</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
+          <Table.Row>
+            <Table.Cell>Numar comenzi: {this.props.orders.length}</Table.Cell>
+          </Table.Row>
           {this.props.orders.length ? (
             this.props.orders.map(item => (
               <Table.Row key={item.id}>
@@ -42,7 +45,7 @@ class OrderList extends Component {
             ))
           ) : (
             <Table.Row>
-              <Table.Cell>No products in order.</Table.Cell>
+              <Table.Cell>Nu exista nici o comanda.</Table.Cell>
             </Table.Row>
           )}
         </Table.Body>

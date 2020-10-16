@@ -71,24 +71,24 @@ class Register extends Component {
                   error={this.props.errors.password}
                   value={this.props.values.password}
                   onChange={this.props.handleChange('password')}
-                  placeholder="Password"
-                  label="Password"
+                  placeholder="Alegeti o parola puternica"
+                  label="Parola"
                   type="password"
                 />
                 <Input
                   error={this.props.errors.name}
                   value={this.props.values.name}
                   onChange={this.props.handleChange('name')}
-                  placeholder="Name"
-                  label="Name"
+                  placeholder="Nume de familie"
+                  label="Nume"
                   type="text"
                 />
                 <Input
                   error={this.props.errors.surname}
                   value={this.props.values.surname}
                   onChange={this.props.handleChange('surname')}
-                  placeholder="Surname"
-                  label="Surname"
+                  placeholder="Numele propriu"
+                  label="Prenume"
                   type="text"
                 />
               </Card.Content>
@@ -96,7 +96,7 @@ class Register extends Component {
                 <Card.Footer.Item>
                   <Button
                     loading={this.props.isLoading}
-                    text="Register"
+                    text="Inregistrare"
                     type="primary"
                     disabled={this.props.isSubmitting}
                     onClick={this.props.handleSubmit}

@@ -2,5 +2,8 @@
   .navbar-menu {
     position: absolute;
     width: 100%;
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
   }
+  
 }

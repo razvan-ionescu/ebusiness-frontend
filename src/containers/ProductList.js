@@ -44,7 +44,7 @@ class ProductList extends Component {
               <Card.Footer.Item>
                 <Button
                   type="primary"
-                  text="Add to cart"
+                  text="Adauga in cos"
                   onClick={() =>
                     this.props.addItem({
                       productId: item.id,
@@ -58,7 +58,7 @@ class ProductList extends Component {
               <Card.Footer.Item>
                 <Button
                   type="info"
-                  text="See more"
+                  text="Detalii"
                   onClick={() => history.push(`/products/${item.id}`)}
                 />
               </Card.Footer.Item>
@@ -67,7 +67,7 @@ class ProductList extends Component {
         </div>
       ))
     ) : (
-      <p>No products to display.</p>
+      <p>Nu exista produse!.</p>
     );
 
     return <div className="columns">{products}</div>;

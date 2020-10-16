@@ -33,41 +33,44 @@ class AddressForm extends Component {
   render() {
     return (
       <Card>
+        <Card.Header>
+          <h5 className="card-header-title">Adresa</h5>
+        </Card.Header>
         <Card.Content>
           <Input
             error={this.props.errors.street}
             value={this.props.values.street}
             onChange={this.props.handleChange('street')}
-            placeholder="Street"
-            label="Street"
+            placeholder="Strada, Bloc, Etaj, Apartament"
+            label="Strada"
             type="text"
           />
           <Input
             error={this.props.errors.city}
             value={this.props.values.city}
             onChange={this.props.handleChange('city')}
-            placeholder="City"
-            label="City"
+            placeholder="Oras"
+            label="Oras"
             type="text"
           />
           <Input
             error={this.props.errors.county}
             value={this.props.values.county}
             onChange={this.props.handleChange('county')}
-            placeholder="County"
-            label="County"
+            placeholder="Judet/Sector"
+            label="Judet/Sector"
             type="text"
           />
           <Input
             error={this.props.errors.postalCode}
             value={this.props.values.postalCode}
             onChange={this.props.handleChange('postalCode')}
-            placeholder="Postal Code"
-            label="Postal Code"
+            placeholder="Cod Postal din 6 cifre"
+            label="Cod Postal"
             type="text"
           />
           <Button
-            text="Add address"
+            text="Adauga adresa"
             type="success"
             onClick={this.props.handleSubmit}
           />
