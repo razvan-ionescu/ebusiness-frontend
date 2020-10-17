@@ -15,13 +15,15 @@ const enhancer = withFormik({
     street: '',
     city: '',
     county: '',
-    postalCode: ''
+    postalCode: '',
+    phoneNumber: ''
   }),
   validationSchema: yup.object({
     street: yup.string().required(),
     city: yup.string().required(),
     county: yup.string().required(),
-    postalCode: yup.string().required()
+    postalCode: yup.string().required(),
+    phoneNumber: yup.string().required()
   }),
   handleSubmit: (values, { props, resetForm }) => {
     props.postAddress({ ...values });
@@ -67,6 +69,14 @@ class AddressForm extends Component {
             onChange={this.props.handleChange('postalCode')}
             placeholder="Cod Postal din 6 cifre"
             label="Cod Postal"
+            type="text"
+          />
+          <Input
+            error={this.props.errors.phoneNumber}
+            value={this.props.values.phoneNumber}
+            onChange={this.props.handleChange('phoneNumber')}
+            placeholder="eg: 0722123456"
+            label="Numar de telefon"
             type="text"
           />
           <Button

@@ -22,6 +22,8 @@ class AddressList extends Component {
                 County: {item.county}
                 <br />
                 Postal Code: {item.postalCode}
+                <br />
+                Phone Number: {item.phoneNumber}
               </div>
             </Card.Content>
           </Card>
